@@ -107,15 +107,12 @@ public class app {
                 1. Registrar empleado y calificaciones
                 2. Mostrar reporte de desempeño
                 3. Consultar categorías salariales
+                4.
                 0. Salir
                 """);
     }
 
-    private static boolean registrarEmpleado(
-            Scanner scanner,
-            Employee[] empleados,
-            double[][] calificaciones,
-            int posicion) {
+    private static boolean registrarEmpleado( Scanner scanner, Employee[] empleados, double[][] calificaciones, int posicion) {
 
         System.out.print("ID positivo: ");
         var id = scanner.nextInt();
@@ -158,9 +155,7 @@ public class app {
             return false;
         }
 
-        for (var trimestre = 0;
-             trimestre < CANTIDAD_TRIMESTRES;
-             trimestre++) {
+        for (var trimestre = 0; trimestre < CANTIDAD_TRIMESTRES; trimestre++) {
             System.out.printf(
                     "Calificación del trimestre %d (0 a 100): ",
                     trimestre + 1);
@@ -181,10 +176,7 @@ public class app {
         return true;
     }
 
-    private static boolean idRepetido(
-            Employee[] empleados,
-            int cantidadEmpleados,
-            int idBuscado) {
+    private static boolean idRepetido( Employee[] empleados, int cantidadEmpleados, int idBuscado) {
         for (var indice = 0; indice < cantidadEmpleados; indice++) {
             if (empleados[indice].getId() == idBuscado) {
                 return true;
@@ -193,10 +185,7 @@ public class app {
         return false;
     }
 
-    private static void mostrarReporte(
-            Employee[] empleados,
-            double[][] calificaciones,
-            int cantidadEmpleados) {
+    private static void mostrarReporte( Employee[] empleados, double[][] calificaciones, int cantidadEmpleados) {
 
         if (cantidadEmpleados == 0) {
             System.out.println("Todavía no hay empleados registrados.");
@@ -225,22 +214,20 @@ public class app {
             var puntajeSimplificado = (int) promedio;
 
             // Operador ternario: condición ? resultadoSiTrue : resultadoSiFalse.
-            var estadoPromocion = promedio >= PROMEDIO_PARA_PROMOCION
-                    ? "PROMOVIDO"
-                    : "NO PROMOVIDO";
+            var estadoPromocion = promedio >= PROMEDIO_PARA_PROMOCION ? "PROMOVIDO" : "NO PROMOVIDO";
 
             var categoria = obtenerCategoriaSalarial(
                     empleados[fila].getSalario());
 
             System.out.printf(
-                    "ID: %d | Nombre: %s | Promedio: %.2f | "
-                            + "Simplificado: %d | Estado: %s | Categoría: %s%n",
-                    empleados[fila].getId(),
-                    empleados[fila].getNombre(),
-                    promedio,
-                    puntajeSimplificado,
-                    estadoPromocion,
-                    categoria);
+                            "ID: %d | Nombre: %s | Promedio: %.2f | "
+                                    + "Simplificado: %d | Estado: %s | Categoría: %s%n",
+                            empleados[fila].getId(),
+                            empleados[fila].getNombre(),
+                            promedio,
+                            puntajeSimplificado,
+                            estadoPromocion,
+                            categoria);
         }
     }
 
