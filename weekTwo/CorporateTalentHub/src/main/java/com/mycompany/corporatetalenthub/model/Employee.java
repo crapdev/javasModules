@@ -14,13 +14,15 @@ public class Employee {
     private final String nombre;
     private final byte edad;
     private final double salario;
+    private final double[] calificaciones;
     private double promedioDesempeno;
 
-    public Employee(int id, String nombre, byte edad, double salario) {
+    public Employee(int id, String nombre, byte edad, double salario, double [] calificaciones) {
         this.id = id;
         this.nombre = nombre;
         this.edad = edad;
         this.salario = salario;
+        this.calificaciones = calificaciones;
     }
 
     public int getId() {
@@ -42,7 +44,10 @@ public class Employee {
     public double getPromedioDesempeno() {
         return promedioDesempeno;
     }
-
+    public double[] getCalificaciones() {
+        return calificaciones;
+    }
+    
     public void setPromedioDesempeno(double promedioDesempeno) {
         this.promedioDesempeno = promedioDesempeno;
     }
