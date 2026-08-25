@@ -5,6 +5,7 @@ import com.mycompany.corporatetalenthub.model.Employee;
 import com.mycompany.corporatetalenthub.model.Manager;
 import com.mycompany.corporatetalenthub.repository.EmployeeRepository;
 import com.mycompany.corporatetalenthub.model.PerformanceReport;
+import com.mycompany.corporatetalenthub.model.Promotable;
 import java.util.List;
 import java.util.Map;
 
@@ -121,6 +122,13 @@ public class EmployeeService {
             return "Presupuesto Mensual: " + manager.getMonthlyBudget();
         }
         return "Tipo de empleado no conocido";
+    }
+    // Metodo para calcular el bono por promocion utilizado una interfaz
+    public double calcularBonoPromocionable(Promotable promotable){
+        
+        promotable.registrarLogPromocion();
+        
+        return promotable.calcularBonoAscenso();
     }
     
     //Acciones CRUD con la capa de datos

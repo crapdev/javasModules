@@ -56,6 +56,7 @@ public class ConsoleView {
                     7. Filtrar empleados por desempeño mínimo
                     8. Generar reportes mensuales
                     9. Consultar roles de empleados
+                   10. Mostrar los bonos de promocion para cada empleado
                     0. Salir
                 
                 """);

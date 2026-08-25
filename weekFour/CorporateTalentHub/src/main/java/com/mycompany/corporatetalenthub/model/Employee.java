@@ -38,4 +38,8 @@ public abstract non-sealed class Employee extends Person{
         this.promedioDesempeno = promedioDesempeno;
     }
     
+    //Uso de protected | Task 4
+    protected double calcularPorcentajeSalario(double porcentage){
+        return getSalario() * porcentage;
+    }
 }

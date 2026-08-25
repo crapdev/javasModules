@@ -3,6 +3,7 @@ package com.mycompany.corporatetalenthub;
 import com.mycompany.corporatetalenthub.model.Developer;
 import com.mycompany.corporatetalenthub.model.Employee;
 import com.mycompany.corporatetalenthub.model.Manager;
+import com.mycompany.corporatetalenthub.model.Promotable;
 import com.mycompany.corporatetalenthub.service.EmployeeService;
 import com.mycompany.corporatetalenthub.view.ConsoleView;
 import java.util.InputMismatchException;
@@ -57,6 +58,8 @@ public class app {
                         case 8 -> mostrarReportesMensuales(service, view);
                         
                         case 9 -> mostrarRolesEmpleados(service, view);
+                        
+                        case 10 -> mostrarBonosPromocion(service, view);
                         
                         default -> view.mostrarMensaje("Opción fuera del menú.");
                     }
@@ -374,6 +377,30 @@ public class app {
             view.mostrarEmpleadoSimple(empleado);
             var informacion = service.obtenerInformacionRol(empleado);
             view.mostrarMensaje(informacion);
+        }
+        
+    }
+    
+    private static void mostrarBonosPromocion(EmployeeService service, ConsoleView view){
+        var employees = service.listarEmpleados();
+        
+        if (employees.isEmpty()) {
+            view.mostrarMensaje("No hay empleados registrados. ");
+            return;
+        }
+        
+        for (Employee employee : employees) {
+            
+            if (employee instanceof Promotable promotable) {
+                
+                var bono = service.calcularBonoPromocionable(promotable);
+                
+                view.mostrarMensaje("Empleado id: " + employee.getId()
+                                        + " | Nombre: " + employee.getNombre()
+                                        + " | Bono de ascenso: $" + bono
+               );
+            }
+            
         }
         
     }

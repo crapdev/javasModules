@@ -8,9 +8,10 @@ package com.mycompany.corporatetalenthub.model;
  *
  * @author cristian
  */
-public final class Manager extends Employee{
-    double monthlyBudget;
-
+public final class Manager extends Employee implements Promotable{
+    private double monthlyBudget;
+    private double percentageIncrease = 0.10;
+    
     public Manager( int id, String nombre, byte edad, double salario, double[] calificaciones, double monthlyBudget) {
         super(id, nombre, edad, salario, calificaciones);
         this.monthlyBudget = monthlyBudget;
@@ -24,4 +25,9 @@ public final class Manager extends Employee{
         this.monthlyBudget = monthlyBudget;
     }
     
+    @Override
+    public double calcularBonoAscenso(){
+        return calcularPorcentajeSalario(percentageIncrease);
+    }
+            
 }
