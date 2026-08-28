@@ -1,5 +1,5 @@
 
-package com.mycompany.corporatetalenthub.model;
+package com.riwi.talent.model;
 
 /*
 Las sealed clases ofrecen más seguridad porque estas obligado a decir quien hereda de quien

@@ -1,5 +1,5 @@
 
-package com.mycompany.corporatetalenthub.model;
+package com.riwi.talent.model;
 
 public interface Promotable {
     

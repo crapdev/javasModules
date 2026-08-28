@@ -1,6 +1,7 @@
-package com.mycompany.corporatetalenthub.repository;
+package com.mycompany.repository;
 
-import com.mycompany.corporatetalenthub.model.Employee;
+import com.riwi.talent.model.Employee;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +30,17 @@ public class EmployeeRepository {
         empleadosPorId.put(id, employee);
 
         return true;
+
+//         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+//         boolean insertado;
+//
+//         if (employee instanceof Developer developer) {
+//            insertado = employeeDAO.insertar(developer);
+//
+//         } else if (employee instanceof Manager manager) {
+//             insertado = employeeDAO.insertar(manager);
+//         }
+//         return insertado;
     }
 
 
